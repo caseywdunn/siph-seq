@@ -1,0 +1,115 @@
+release: 2026-11-18
+completed: 2026-11-19T15:16:02Z
+git_commit: ac49a3cb6af31ec1a70f7303290cb74bfe5fc879
+git_dirty: false
+tools:
+  snakemake: '9.24.0'
+  sharkmer: 'sharkmer 3.2.1 (https://github.com/caseywdunn/sharkmer)'
+  blastn: 'blastn: 2.17.0+'
+  mafft: 'v7.526 (2024/Apr/26)'
+  trimal: 'trimAl v1.5.rev1 build[2025-11-25]'
+  iqtree: 'IQ-TREE version 3.1.4 for Linux x86 64-bit built Sep 29 2026'
+  datasets: 'datasets version: 18.41.1'
+sharkmer_panel: 'panel_version: 1.0.9'
+config:
+  release: '2026-11-18'
+  taxon:
+    name: Siphonophorae
+    taxid: 42759
+  ncbi:
+    max_record_length: 100000
+    process_record_types:
+    - gene_record
+    - mitochondrial_genome
+    batch_size: 200
+  sra:
+    platforms:
+    - ILLUMINA
+    - BGISEQ
+    - DNBSEQ
+    library_strategies:
+    - WGS
+    - RNA-Seq
+    - WGA
+    - Hi-C
+    - OTHER
+    max_reads: 2000000
+    max_runs: null
+  sharkmer:
+    panel: hydrozoa
+    threads: 4
+    include_uncertain_products: false
+    gene_map:
+      16S: 16S
+      CO1: CO1
+      18S: 18S
+      28S: 28S
+  genomes:
+    accession_prefix: GCA
+    max_copies_per_gene: 3
+    max_copies_by_gene:
+      16S: 1
+      CO1: 1
+    include: null
+  markers:
+    reference_records:
+    - NC_080951.1
+    - PZ224405.1
+    - KT809335.1
+    - OQ957212.1
+    - KX421854.1
+    - KX421851.1
+    - EU272566.1
+    - EU272594.1
+    - EU272546.1
+    blast_task: dc-megablast
+    evalue: 1e-10
+    min_hsp_length: 50
+    max_chain_gap: 300
+    max_gene_overlap: 0.5
+  trees:
+    genes:
+    - 18S
+    - 28S
+    - 16S
+    - CO1
+    min_length:
+      18S: 100
+      28S: 100
+      16S: 100
+      CO1: 100
+    backbone_min_length:
+      18S: 1500
+      28S: 1500
+      16S: 450
+      CO1: 550
+    min_aligned_sites: 80
+    mafft_args: --auto
+    trimal_args: -automated1
+    iqtree_model: MFP
+    iqtree_bootstrap: 1000
+    seed: 1
+  suspect:
+    k_neighbors: 5
+    ranks:
+      18S:
+      - family
+      28S:
+      - family
+      16S:
+      - genus
+      - family
+      CO1:
+      - genus
+      - family
+    min_distance_gap:
+      18S: 0.01
+      28S: 0.01
+      16S: 0.02
+      CO1: 0.02
+  report:
+    blast_db: core_nt
+    blast_task: megablast
+    blast_max_hits: 5
+    blast_max_age_days: 180
+  
