@@ -83,6 +83,8 @@ localrules:
     report_release,
     record_release_provenance,
     write_release_report,
+    describe_studies,
+    blast_flagged_sequences,
     inventory,
     trees,
     all,

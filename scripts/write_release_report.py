@@ -386,6 +386,145 @@ def tip_link(tip_id: str, tips_by_gene: dict, gene: str) -> str:
     )
 
 
+def write_dataset(w, L, r, args, cfg, placements, tips_by_gene, figures, blast, sra_inv, status_by):
+    """One flagged dataset: metadata, placements, BLAST matches and figures."""
+    acc, src = r["accession"], r["source"]
+    st = status_by.get((src, acc), {})
+    w(f"#### {acc}")
+    w("")
+    w(f"*{r['organism']}* ({r['family'] or 'family unknown'}), {SOURCE_TEXT.get(src, src)}.")
+    w("")
+    w(f"- Record: [{acc}]({dataset_url(src, acc)})")
+    if src == "sra_run" and acc in sra_inv:
+        inv = sra_inv[acc]
+        w(f"- ENA: [{acc}](https://www.ebi.ac.uk/ena/browser/view/{acc})")
+        w(
+            f"- Library: {inv.get('library_strategy', '')}, "
+            f"{inv.get('library_source', '').lower()}, "
+            f"selection {inv.get('library_selection', '')}, "
+            f"{inv.get('library_layout', '').lower()}, {inv.get('instrument_model', '')}"
+        )
+    if r.get("voucher"):
+        w(f"- Voucher: {r['voucher']}")
+    if r.get("title") and src != "sra_run":
+        w(f"- Title: {r['title']}")
+    if st.get("genes_in_trees"):
+        w(f"- Genes in trees: {st['genes_in_trees'].replace(';', ', ')}")
+    w("")
+    tip_src = TIP_SOURCE.get(src, src)
+    own = sorted(
+        (
+            (g, p)
+            for g in args.genes
+            for p in placements[g]
+            if p["dataset"] == acc and p["source"] == tip_src
+        ),
+        key=lambda gp: (
+            args.genes.index(gp[0]),
+            copy_number(gp[1]["tip_id"], tips_by_gene[gp[0]]),
+        ),
+    )
+    with_copies = src == "genome_assembly"
+    rows = []
+    for g, p in own:
+        nn = p["nearest_neighbor"]
+        ranks = cfg["suspect"]["ranks"][g]
+        row = [g]
+        if with_copies:
+            row.append(copy_number(p["tip_id"], tips_by_gene[g]))
+        row += [
+            f"**{FLAG_TEXT.get(p['flag'], p['flag'])}**"
+            if p["flag"] in FLAG_ORDER
+            else FLAG_TEXT.get(p["flag"], p["flag"]),
+            p["length"],
+            p["aligned_sites"],
+            tip_link(nn, tips_by_gene, g) if nn else "",
+            p["nearest_distance"],
+            fmt_dist(p["nearest_same_genus_distance"], "genus" in ranks),
+            fmt_dist(p["nearest_same_family_distance"], "family" in ranks),
+            p["neighbor_families"],
+        ]
+        rows.append(row)
+    w(
+        "All placements of this dataset's sequences (distances are along the tree, "
+        "in substitutions per site):"
+    )
+    w("")
+    L += table(
+        ["Gene"]
+        + (["Copy"] if with_copies else [])
+        + [
+            "Placement",
+            "Length (bp)",
+            "Aligned sites",
+            "Nearest sequence",
+            "Distance",
+            "Nearest same genus",
+            "Nearest same family",
+            "Families among nearest",
+        ],
+        rows,
+    )
+    if any("another copy consistent" in f for f in r["flags"].split(";")):
+        w(
+            "Another copy of the same gene from this dataset placed as expected. A "
+            "foreign copy alongside a consistent one points to contamination in the "
+            "sequenced material, not to a misidentified specimen."
+        )
+        w("")
+    rows, searched = [], set()
+    for g, p in own:
+        if p["flag"] not in FLAG_ORDER:
+            continue
+        hits = blast.get((g, p["tip_id"]), [])
+        searched |= {f"{h['database']}, {h['searched']}" for h in hits}
+        label = g + (f" copy {copy_number(p['tip_id'], tips_by_gene[g])}" if with_copies else "")
+        if not any(h["status"] == "ok" for h in hits):
+            rows.append([label, "", "no significant match", "", "", "", ""])
+        for h in hits:
+            if h["status"] != "ok":
+                continue
+            group = h["hit_group"] if h["hit_group"] == "siphonophore" else f"**{h['hit_group']}**"
+            rows.append(
+                [
+                    label,
+                    h["hit_rank"],
+                    f"[{h['hit_accession']}](https://www.ncbi.nlm.nih.gov/nuccore/"
+                    f"{h['hit_accession']})",
+                    f"*{h['hit_organism']}*",
+                    group,
+                    f"{float(h['pident']):.1f}",
+                    h["query_coverage"],
+                ]
+            )
+    if rows:
+        w(
+            "Closest GenBank sequences to each flagged sequence by BLAST "
+            f"({'; '.join(sorted(searched)) or 'not searched'}), excluding this record. "
+            "Groups outside siphonophores are in bold:"
+        )
+        w("")
+        L += table(
+            [
+                "Sequence",
+                "Rank",
+                "Match",
+                "Organism",
+                "Group",
+                "Identity (%)",
+                "Query coverage (%)",
+            ],
+            rows,
+        )
+    for g, p in own:
+        key = p["tip_id"] + "|" + g
+        if key in figures:
+            w(f"![{g} tree neighbourhood of {p['tip_id']}]({figures[key]})")
+            w("")
+    w("[Back to flagged datasets](#flagged-datasets)")
+    w("")
+
+
 def main() -> None:
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--release", required=True)
@@ -395,6 +534,8 @@ def main() -> None:
     ap.add_argument("--index", required=True, type=Path)
     ap.add_argument("--neighbours-shown", type=int, default=10)
     ap.add_argument("--record", type=Path, help="release record (default: in --release-dir)")
+    ap.add_argument("--studies", required=True, type=Path, help="describe_studies.py output")
+    ap.add_argument("--blast", required=True, type=Path, help="blast_flagged_sequences.py output")
     args = ap.parse_args()
 
     rel, out = args.release_dir, args.out_dir
@@ -413,6 +554,24 @@ def main() -> None:
     tips_by_gene = {g: load_tips(rel / f"trees/{g}/tip_metadata.tsv") for g in args.genes}
     sra_inv = {r["run_accession"]: r for r in read_tsv(rel / "inventory/sra_runs.tsv")}
     status_by = {(r["source"], r["accession"]): r for r in status}
+    study_rows = read_tsv(args.studies)
+    # Records of one study may cite it as published or still unpublished: describe
+    # each study by its published citation when any record has one.
+    canonical: dict[str, dict] = {}
+    for r in sorted(
+        study_rows, key=lambda r: (r.get("journal") in ("", "Unpublished"), not r.get("pubmed"))
+    ):
+        canonical.setdefault(r["study_id"], r)
+    label_fields = ("study_label", "short_label", "authors", "title", "journal", "year", "pubmed")
+    studies = {
+        (r["source"], r["accession"]): dict(
+            r, **{f: canonical[r["study_id"]][f] for f in label_fields}
+        )
+        for r in study_rows
+    }
+    blast: dict[tuple[str, str], list[dict]] = defaultdict(list)
+    for h in read_tsv(args.blast):
+        blast[(h["gene_id"], h["tip_id"])].append(h)
 
     # Figures for every flagged placement.
     figures: dict[str, str] = {}
@@ -437,6 +596,8 @@ def main() -> None:
     # Backup files.
     for name in ("summary.tsv", "dataset_flags.tsv", "dataset_status.tsv"):
         shutil.copy(rel / "reports" / name, out / "data" / name)
+    shutil.copy(args.studies, out / "data" / "studies.tsv")
+    shutil.copy(args.blast, out / "data" / "blast_hits.tsv")
     for g in args.genes:
         shutil.copy(rel / f"trees/{g}/placements.tsv", out / "data" / f"placements_{g}.tsv")
         shutil.copy(rel / f"trees/{g}/tip_metadata.tsv", out / "data" / f"tips_{g}.tsv")
@@ -554,135 +715,114 @@ def main() -> None:
         rows,
     )
 
-    # --- Flagged datasets
+    # --- Flagged datasets, grouped by study
     w("## Flagged datasets")
     w("")
     w(
-        "Datasets are ordered by source and then by the strongest flag. Datasets flagged "
-        "in more than one gene, or by both a genome and independent data, carry more "
-        "weight than a single flag."
+        "Flagged datasets are grouped by the study they come from (publication, "
+        "BioProject or submitter), so the people behind a study can find all of theirs "
+        "in one place. Studies are ordered by their strongest flag. Datasets flagged in "
+        "more than one gene, or with BLAST matches outside siphonophores, carry the most "
+        "weight."
     )
     w("")
     flag_rank = {f: i for i, f in enumerate(FLAG_ORDER)}
-    src_rank = {"genome_assembly": 0, "sra_run": 1, "ncbi_nucleotide": 2}
-    flags.sort(
-        key=lambda r: (
-            src_rank.get(r["source"], 9),
-            flag_rank.get(r["max_flag"], 9),
-            -int(r["genes_flagged"] or 0),
-            r["accession"],
+
+    def study_of(src: str, acc: str) -> dict:
+        return studies.get((TIP_SOURCE.get(src, src), acc)) or {
+            "study_id": f"dataset:{acc}",
+            "short_label": acc,
+            "study_label": acc,
+        }
+
+    groups: dict[str, list[dict]] = defaultdict(list)
+    for r in flags:
+        groups[study_of(r["source"], r["accession"])["study_id"]].append(r)
+    for rows_ in groups.values():
+        rows_.sort(
+            key=lambda r: (
+                flag_rank.get(r["max_flag"], 9),
+                -int(r["genes_flagged"] or 0),
+                r["accession"],
+            )
         )
+    order = sorted(
+        groups,
+        key=lambda k: (
+            min(flag_rank.get(r["max_flag"], 9) for r in groups[k]),
+            -max(int(r["genes_flagged"] or 0) for r in groups[k]),
+            study_of(groups[k][0]["source"], groups[k][0]["accession"])["short_label"],
+        ),
     )
-    rows = []
-    for r in flags:
-        acc = r["accession"]
-        rows.append(
-            [
-                f"[{acc}](#{anchor(acc)})",
-                SOURCE_TEXT.get(r["source"], r["source"]),
-                f"*{r['organism']}*",
-                r["family"],
-                f"{r['genes_flagged']} of {r['genes_evaluated']}",
-                flag_text(r["flags"]),
-            ]
-        )
-    L += table(["Dataset", "Source", "Labelled as", "Family", "Genes flagged", "Flags"], rows)
-    for r in flags:
-        acc, src = r["accession"], r["source"]
-        st = status_by.get((src, acc), {})
-        w(f"### {acc}")
-        w("")
-        w(f"*{r['organism']}* ({r['family'] or 'family unknown'}), {SOURCE_TEXT.get(src, src)}.")
-        w("")
-        w(f"- Record: [{acc}]({dataset_url(src, acc)})")
-        if src == "sra_run" and acc in sra_inv:
-            inv = sra_inv[acc]
-            w(f"- ENA: [{acc}](https://www.ebi.ac.uk/ena/browser/view/{acc})")
-            w(
-                f"- Library: {inv.get('library_strategy', '')}, "
-                f"{inv.get('library_source', '').lower()}, "
-                f"selection {inv.get('library_selection', '')}, "
-                f"{inv.get('library_layout', '').lower()}, {inv.get('instrument_model', '')}"
-            )
-            if inv.get("study_title"):
-                w(f"- Study: {inv['study_title']}")
-        if r.get("project"):
-            w(f"- BioProject: [{r['project']}]({project_url(r['project'])})")
-        if r.get("voucher"):
-            w(f"- Voucher: {r['voucher']}")
-        if r.get("title") and src != "sra_run":
-            w(f"- Title: {r['title']}")
-        if st.get("genes_in_trees"):
-            w(f"- Genes in trees: {st['genes_in_trees'].replace(';', ', ')}")
-        w("")
-        rows = []
+    headings: dict[str, str] = {}
+    for k in order:
+        h = "Study: " + study_of(groups[k][0]["source"], groups[k][0]["accession"])["short_label"]
+        n, base = 2, h
+        while h in headings.values():
+            h, n = f"{base} ({n})", n + 1
+        headings[k] = h
+
+    def best_match(src: str, acc: str) -> str:
         tip_src = TIP_SOURCE.get(src, src)
-        own = sorted(
-            (
-                (g, p)
-                for g in args.genes
-                for p in placements[g]
-                if p["dataset"] == acc and p["source"] == tip_src
-            ),
-            key=lambda gp: (
-                args.genes.index(gp[0]),
-                copy_number(gp[1]["tip_id"], tips_by_gene[gp[0]]),
-            ),
-        )
-        with_copies = src == "genome_assembly"
-        for g, p in own:
-            nn = p["nearest_neighbor"]
-            ranks = cfg["suspect"]["ranks"][g]
-            row = [g]
-            if with_copies:
-                row.append(copy_number(p["tip_id"], tips_by_gene[g]))
-            row += [
-                f"**{FLAG_TEXT.get(p['flag'], p['flag'])}**"
-                if p["flag"] in FLAG_ORDER
-                else FLAG_TEXT.get(p["flag"], p["flag"]),
-                p["length"],
-                p["aligned_sites"],
-                tip_link(nn, tips_by_gene, g) if nn else "",
-                p["nearest_distance"],
-                fmt_dist(p["nearest_same_genus_distance"], "genus" in ranks),
-                fmt_dist(p["nearest_same_family_distance"], "family" in ranks),
-                p["neighbor_families"],
-            ]
-            rows.append(row)
-        w(
-            "All placements of this dataset's sequences (distances are along the tree, "
-            "in substitutions per site):"
-        )
-        w("")
-        L += table(
-            ["Gene"]
-            + (["Copy"] if with_copies else [])
-            + [
-                "Placement",
-                "Length (bp)",
-                "Aligned sites",
-                "Nearest sequence",
-                "Distance",
-                "Nearest same genus",
-                "Nearest same family",
-                "Families among nearest",
-            ],
-            rows,
-        )
-        if any("another copy consistent" in f for f in r["flags"].split(";")):
-            w(
-                "Another copy of the same gene from this dataset placed as expected. A "
-                "foreign copy alongside a consistent one points to contamination in the "
-                "sequenced material, not to a misidentified specimen."
+        parts = []
+        for g in args.genes:
+            for p in placements[g]:
+                if p["dataset"] == acc and p["source"] == tip_src and p["flag"] in FLAG_ORDER:
+                    hits = blast.get((g, p["tip_id"]), [])
+                    top = next((h for h in hits if h["status"] == "ok"), None)
+                    if top is None:
+                        parts.append(f"{g}: no match")
+                    else:
+                        group = top["hit_group"]
+                        text = f"*{top['hit_organism']}* ({group}, {float(top['pident']):.0f}%)"
+                        if group != "siphonophore":
+                            text = f"**{text}**"
+                        parts.append(f"{g}: {text}")
+        return "; ".join(parts)
+
+    rows = []
+    for k in order:
+        for r in groups[k]:
+            acc = r["accession"]
+            rows.append(
+                [
+                    f"[{acc}](#{anchor(acc)})",
+                    f"*{r['organism']}*",
+                    f"[{headings[k].removeprefix('Study: ')}](#{anchor(headings[k])})",
+                    f"{r['genes_flagged']} of {r['genes_evaluated']}",
+                    flag_text(r["flags"]),
+                    best_match(r["source"], acc),
+                ]
             )
-            w("")
-        for g, p in own:
-            key = p["tip_id"] + "|" + g
-            if key in figures:
-                w(f"![{g} tree neighbourhood of {p['tip_id']}]({figures[key]})")
-                w("")
-        w("[Back to flagged datasets](#flagged-datasets)")
+    L += table(
+        ["Dataset", "Labelled as", "Study", "Genes flagged", "Flags", "Best BLAST match"], rows
+    )
+    w(
+        "*Best BLAST match*: the closest other GenBank sequence to each flagged sequence, "
+        "with its group and percent identity. Matches outside siphonophores are in bold."
+    )
+    w("")
+
+    for k in order:
+        st0 = study_of(groups[k][0]["source"], groups[k][0]["accession"])
+        w(f"### {headings[k]}")
         w("")
+        w(st0["study_label"])
+        w("")
+        if st0.get("pubmed"):
+            w(f"- PubMed: [{st0['pubmed']}](https://pubmed.ncbi.nlm.nih.gov/{st0['pubmed']}/)")
+        if st0.get("bioproject"):
+            w(f"- BioProject: [{st0['bioproject']}]({project_url(st0['bioproject'])})")
+        if st0.get("submitter"):
+            when = f" ({st0['submitted']})" if st0.get("submitted") else ""
+            w(f"- Submitter: {st0['submitter']}{when}")
+        links = ", ".join(f"[{r['accession']}](#{anchor(r['accession'])})" for r in groups[k])
+        w(f"- Flagged datasets: {links}")
+        w("")
+        for r in groups[k]:
+            write_dataset(
+                w, L, r, args, cfg, placements, tips_by_gene, figures, blast, sra_inv, status_by
+            )
 
     # --- How to read
     w("## How to read a flag")
@@ -753,6 +893,13 @@ def main() -> None:
         "correct."
     )
     w(
+        "- **A long distance to the nearest sequence** (more than a few tenths of a "
+        "substitution per site) means the sequence resembles nothing else in the tree. "
+        "It may not be a siphonophore sequence at all, may not be the gene it was "
+        "identified as, or may be poor quality. The BLAST matches in each dataset's "
+        "section show what it most resembles in GenBank."
+    )
+    w(
         "- **Environmental sequences** carry the taxonomy their submitters assigned, which "
         "may itself be an inference."
     )
@@ -764,6 +911,8 @@ def main() -> None:
 
     # --- Methods
     m, t, s, sh = cfg["markers"], cfg["trees"], cfg["suspect"], cfg["sharkmer"]
+    blast_db = cfg.get("report", {}).get("blast_db", "core_nt")
+    blast_task = cfg.get("report", {}).get("blast_task", "megablast")
     w("## Methods")
     w("")
     w(
@@ -826,6 +975,18 @@ def main() -> None:
         "differences are reported as unresolved."
     )
     w(
+        "- **BLAST.** Each flagged sequence was searched against NCBI's "
+        f"`{blast_db}` nucleotide database with `blastn -task {blast_task}` (E-value ≤ "
+        "1e-10), excluding its own record. Each match is classified from its NCBI "
+        "Taxonomy lineage as a siphonophore, another hydrozoan, another cnidarian, or by "
+        "its phylum."
+    )
+    w(
+        "- **Studies.** Datasets are grouped by the publication in their GenBank record "
+        "(or the unpublished title, or the submitter if there is neither), or by their "
+        "BioProject for reads and assemblies."
+    )
+    w(
         "- **Figures** show the flagged sequence with its nearest sequences and the "
         "nearest sequences of its labelled genus and family, cut from the full tree with "
         "branch lengths kept, and rooted at the midpoint for display. Support values are "
@@ -857,6 +1018,7 @@ def main() -> None:
                     f"[{p['dataset']}]({dataset_url(p['source'], p['dataset'])})",
                     f"*{p['organism']}*",
                     p["family"],
+                    studies.get((p["source"], p["dataset"]), {}).get("short_label", ""),
                     tip_link(p["nearest_neighbor"], tips_by_gene, g),
                     p["nearest_distance"],
                     fmt_dist(
@@ -874,6 +1036,7 @@ def main() -> None:
             "Dataset",
             "Labelled as",
             "Family",
+            "Study",
             "Nearest sequence",
             "Distance",
             "Nearest same genus",
@@ -952,6 +1115,14 @@ def main() -> None:
         [
             "[`dataset_flags.tsv`](data/dataset_flags.tsv)",
             "One row per flagged dataset, with its flags across genes.",
+        ],
+        [
+            "[`studies.tsv`](data/studies.tsv)",
+            "Publication, BioProject and submitter of each flagged or unresolved dataset.",
+        ],
+        [
+            "[`blast_hits.tsv`](data/blast_hits.tsv)",
+            "Top BLAST matches of each flagged sequence, with their taxonomy.",
         ],
         [
             "[`dataset_status.tsv`](data/dataset_status.tsv)",

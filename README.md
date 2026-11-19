@@ -51,10 +51,12 @@ release are kept separately under `results/releases/<release>/`.
 
 Each release ends with a report for sharing, in [`reports/`](reports/).
 `reports/<release>/README.md` explains the screen and its outcomes in plain
-language. It gives the methods and settings, lists every flagged dataset with
-links to its NCBI and ENA records, and gives the evidence for each flag:
-placement statistics and a figure of the dataset's neighbourhood in the gene
-tree. The trees, alignments and tables behind it are in
+language. It gives the methods and settings, and lists every flagged dataset
+grouped by study (publication, BioProject or submitter), so the people behind
+a study find all of theirs together. Each flagged dataset has links to its NCBI
+and ENA records and the evidence for each flag: placement statistics, the
+closest GenBank sequences by BLAST (showing whether the sequence is a
+siphonophore at all), and a figure of its neighbourhood in the gene tree. The trees, alignments and tables behind it are in
 `reports/<release>/data/`, so a link to the report gives readers everything.
 [`reports/README.md`](reports/README.md) lists all releases.
 
@@ -219,6 +221,12 @@ hour. The workflow stays under this: light steps run inside the Snakemake
 process, and cluster jobs are submitted at no more than 3 per minute. A first
 release with about 450 SRA runs therefore takes at least 2.5 hours just to
 submit. Avoid running two releases at once.
+
+**BLAST of flagged sequences.** The report step searches each flagged
+sequence remotely at NCBI. NCBI queues remote searches, so this can take an
+hour or more. Results are cached by sequence in `results/blast_remote/`, so
+later releases search only new flagged sequences (and repeat searches older
+than `report.blast_max_age_days`).
 
 **Interrupted runs.** If Snakemake was stopped abruptly, the next launch may
 report that the directory "cannot be locked". Check that no other Snakemake is

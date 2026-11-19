@@ -5,7 +5,10 @@ Flag suspect species identifications and summarize the release.
    flag_suspect_placements.
 2. Summarize each dataset's outcome and flags across genes: report_release.
 3. Record what produced the release: record_release_provenance.
-4. Write the shareable report, with figures and supporting files, to the
+4. Describe the study (publication, BioProject, submitter) behind each flagged
+   or unresolved dataset: describe_studies. Search each flagged sequence
+   against GenBank and classify the matches: blast_flagged_sequences.
+5. Write the shareable report, with figures and supporting files, to the
    tracked reports/<release>/ directory: write_release_report. Everything else
    a release produces stays in the untracked results/releases/<release>/.
 """
@@ -88,8 +91,45 @@ rule record_release_provenance:
         """
 
 
+rule describe_studies:
+    input:
+        placements=expand(f"{REL}/trees/{{gene}}/placements.tsv", gene=TREE_GENES),
+        sra_runs=f"{REL}/inventory/sra_runs.tsv",
+        genomes=f"{REL}/inventory/genomes.tsv",
+        script="scripts/describe_studies.py",
+    output:
+        f"{REL}/reports/studies.tsv",
+    shell:
+        """
+        python {input.script} --placements {input.placements:q} --sra-runs {input.sra_runs:q} \
+          --genomes {input.genomes:q} --genbank-store data/ncbi_nucleotide --out {output:q}
+        """
+
+
+rule blast_flagged_sequences:
+    input:
+        placements=expand(f"{REL}/trees/{{gene}}/placements.tsv", gene=TREE_GENES),
+        tips=expand(f"{REL}/trees/{{gene}}/tip_metadata.tsv", gene=TREE_GENES),
+        backbone=expand(f"{REL}/trees/{{gene}}/backbone.fasta", gene=TREE_GENES),
+        fragments=expand(f"{REL}/trees/{{gene}}/fragments.fasta", gene=TREE_GENES),
+        script="scripts/blast_flagged_sequences.py",
+    output:
+        f"{REL}/reports/blast_hits.tsv",
+    params:
+        tree_dirs=expand(f"{REL}/trees/{{gene}}", gene=TREE_GENES),
+    shell:
+        """
+        python {input.script} --tree-dirs {params.tree_dirs:q} --cache results/blast_remote \
+          --db {config[report][blast_db]} --task {config[report][blast_task]} \
+          --max-hits {config[report][blast_max_hits]} \
+          --max-age-days {config[report][blast_max_age_days]} --out {output:q}
+        """
+
+
 rule write_release_report:
     input:
+        studies=f"{REL}/reports/studies.tsv",
+        blast=f"{REL}/reports/blast_hits.tsv",
         record=f"{REL}/release_record.yaml",
         summary=f"{REL}/reports/summary.tsv",
         status=f"{REL}/reports/dataset_status.tsv",
@@ -109,5 +149,6 @@ rule write_release_report:
     shell:
         """
         python {input.script} --release {RELEASE} --release-dir {REL} \
-          --genes {TREE_GENES} --out-dir reports/{RELEASE} --index {output.index:q}
+          --genes {TREE_GENES} --out-dir reports/{RELEASE} --index {output.index:q} \
+          --studies {input.studies:q} --blast {input.blast:q}
         """

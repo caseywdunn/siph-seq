@@ -139,3 +139,13 @@ suspect:
     28S: 0.01
     16S: 0.02
     CO1: 0.02
+
+# --- Release report -------------------------------------------------------------
+report:
+  # Each flagged sequence is searched remotely against this NCBI nucleotide
+  # database. Results are cached by sequence in results/blast_remote/ and
+  # searched again once older than blast_max_age_days.
+  blast_db: core_nt
+  blast_task: megablast
+  blast_max_hits: 5
+  blast_max_age_days: 180

@@ -18,6 +18,13 @@ Two kinds of output, kept apart so releases can reuse per-dataset work:
 | Shared references | `results/references/` | Configuration | sharkmer panel export plus `markers.reference_records` |
 | Release report (tracked in git) | `reports/<release>/` | Release id | The release's reports, trees and record |
 
+The report groups flagged datasets by study (`describe_studies.py`: GenBank
+REFERENCE blocks, ENA study and centre, assembly BioProject) and adds remote
+BLAST matches for each flagged sequence (`blast_flagged_sequences.py`, cached in
+`results/blast_remote/` by sequence, database and task). Misha has no local
+copy of NCBI nt, and remote searches queue at NCBI for tens of minutes, so all
+flagged sequences go in one batched search.
+
 The release report is the shareable record of a release. It contains a
 self-contained `README.md` (methods, definitions, every flag with evidence),
 SVG neighbourhood figures, and copies of the tables, trees and gzipped
