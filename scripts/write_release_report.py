@@ -987,7 +987,8 @@ def main() -> None:
     # --- Provenance
     w("## Provenance")
     w("")
-    w(f"- Release: {args.release}; analysis completed {record.get('completed', '')}")
+    w(f"- Release: {args.release} (data listed by NCBI and ENA on that date)")
+    w(f"- Release record written: {record.get('completed', '')}")
     w(
         f"- Workflow commit: `{commit}`"
         + (" (with uncommitted changes)" if str(record.get("git_dirty")) == "true" else "")
