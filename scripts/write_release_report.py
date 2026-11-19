@@ -900,6 +900,13 @@ def main() -> None:
         "section show what it most resembles in GenBank."
     )
     w(
+        "- **The trees contain only siphonophores and a few other hydrozoans.** A "
+        "sequence from a more distant organism (for example a sea anemone, a copepod "
+        "or an annelid) still has to be placed somewhere, usually among the "
+        "siphonophores, so it is often flagged as belonging to another family rather "
+        "than as outside siphonophores. Its BLAST matches show what it really is."
+    )
+    w(
         "- **Environmental sequences** carry the taxonomy their submitters assigned, which "
         "may itself be an inference."
     )
