@@ -11,3 +11,6 @@ __pycache__/
 .ruff_cache/
 .ipynb_checkpoints/
 .DS_Store
+
+# Snakemake markers inside directory outputs (reports/)
+.snakemake_timestamp
