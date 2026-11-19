@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="952" height="404" viewBox="0 0 952 404" font-family="Helvetica, Arial, sans-serif">
+<rect width="952" height="404" fill="#ffffff"/>
+<text x="12" y="20" font-size="14" font-weight="bold" fill="#000">18S: Lilyopsis medusa (SRA SRR6178974) (groups with another family)</text>
+<line x1="12.0" y1="55.0" x2="12.0" y2="249.6" stroke="#444"/>
+<line x1="12.0" y1="55.0" x2="426.6" y2="55.0" stroke="#444"/>
+<line x1="426.6" y1="46.0" x2="426.6" y2="64.0" stroke="#444"/>
+<text x="423.6" y="52.0" font-size="9" fill="#777" text-anchor="end">100</text>
+<line x1="426.6" y1="46.0" x2="432.0" y2="46.0" stroke="#444"/>
+<line x1="426.6" y1="64.0" x2="426.6" y2="64.0" stroke="#444"/>
+<line x1="12.0" y1="249.6" x2="228.4" y2="249.6" stroke="#444"/>
+<line x1="228.4" y1="174.2" x2="228.4" y2="325.0" stroke="#444"/>
+<text x="225.4" y="246.6" font-size="9" fill="#777" text-anchor="end">100</text>
+<line x1="228.4" y1="174.2" x2="283.1" y2="174.2" stroke="#444"/>
+<line x1="283.1" y1="109.0" x2="283.1" y2="239.5" stroke="#444"/>
+<text x="280.1" y="171.2" font-size="9" fill="#777" text-anchor="end">100</text>
+<line x1="283.1" y1="109.0" x2="319.7" y2="109.0" stroke="#444"/>
+<line x1="319.7" y1="109.0" x2="319.7" y2="109.0" stroke="#444"/>
+<text x="316.7" y="106.0" font-size="9" fill="#777" text-anchor="end">100</text>
+<line x1="319.7" y1="109.0" x2="332.3" y2="109.0" stroke="#444"/>
+<line x1="332.3" y1="91.0" x2="332.3" y2="127.0" stroke="#444"/>
+<text x="329.3" y="106.0" font-size="9" fill="#777" text-anchor="end">99</text>
+<line x1="332.3" y1="91.0" x2="353.5" y2="91.0" stroke="#444"/>
+<line x1="353.5" y1="82.0" x2="353.5" y2="100.0" stroke="#444"/>
+<text x="350.5" y="88.0" font-size="9" fill="#777" text-anchor="end">100</text>
+<line x1="353.5" y1="82.0" x2="353.5" y2="82.0" stroke="#444"/>
+<line x1="353.5" y1="100.0" x2="353.5" y2="100.0" stroke="#444"/>
+<line x1="332.3" y1="127.0" x2="339.4" y2="127.0" stroke="#444"/>
+<line x1="339.4" y1="118.0" x2="339.4" y2="136.0" stroke="#444"/>
+<text x="336.4" y="124.0" font-size="9" fill="#777" text-anchor="end">95</text>
+<line x1="339.4" y1="118.0" x2="347.2" y2="118.0" stroke="#444"/>
+<line x1="339.4" y1="136.0" x2="339.4" y2="136.0" stroke="#444"/>
+<line x1="283.1" y1="239.5" x2="343.2" y2="239.5" stroke="#444"/>
+<line x1="343.2" y1="203.5" x2="343.2" y2="275.5" stroke="#444"/>
+<text x="340.2" y="236.5" font-size="9" fill="#777" text-anchor="end">100</text>
+<line x1="343.2" y1="203.5" x2="400.1" y2="203.5" stroke="#444"/>
+<line x1="400.1" y1="176.5" x2="400.1" y2="230.5" stroke="#444"/>
+<text x="397.1" y="200.5" font-size="9" fill="#777" text-anchor="end">51</text>
+<line x1="400.1" y1="176.5" x2="403.6" y2="176.5" stroke="#444"/>
+<line x1="403.6" y1="163.0" x2="403.6" y2="190.0" stroke="#444"/>
+<text x="400.6" y="173.5" font-size="9" fill="#777" text-anchor="end">78</text>
+<line x1="403.6" y1="163.0" x2="403.6" y2="163.0" stroke="#444"/>
+<line x1="403.6" y1="154.0" x2="403.6" y2="172.0" stroke="#444"/>
+<line x1="403.6" y1="154.0" x2="403.6" y2="154.0" stroke="#444"/>
+<line x1="403.6" y1="172.0" x2="403.6" y2="172.0" stroke="#444"/>
+<line x1="403.6" y1="190.0" x2="403.6" y2="190.0" stroke="#444"/>
+<line x1="400.1" y1="230.5" x2="421.6" y2="230.5" stroke="#444"/>
+<line x1="421.6" y1="217.0" x2="421.6" y2="244.0" stroke="#444"/>
+<text x="418.6" y="227.5" font-size="9" fill="#777" text-anchor="end">77</text>
+<line x1="421.6" y1="217.0" x2="425.1" y2="217.0" stroke="#444"/>
+<line x1="425.1" y1="208.0" x2="425.1" y2="226.0" stroke="#444"/>
+<text x="422.1" y="214.0" font-size="9" fill="#777" text-anchor="end">99</text>
+<line x1="425.1" y1="208.0" x2="425.1" y2="208.0" stroke="#444"/>
+<line x1="425.1" y1="226.0" x2="425.1" y2="226.0" stroke="#444"/>
+<line x1="421.6" y1="244.0" x2="432.0" y2="244.0" stroke="#444"/>
+<line x1="343.2" y1="275.5" x2="346.6" y2="275.5" stroke="#444"/>
+<line x1="346.6" y1="262.0" x2="346.6" y2="289.0" stroke="#444"/>
+<text x="343.6" y="272.5" font-size="9" fill="#777" text-anchor="end">96</text>
+<line x1="346.6" y1="262.0" x2="346.6" y2="262.0" stroke="#444"/>
+<line x1="346.6" y1="289.0" x2="346.6" y2="289.0" stroke="#444"/>
+<line x1="346.6" y1="280.0" x2="346.6" y2="298.0" stroke="#444"/>
+<text x="343.6" y="286.0" font-size="9" fill="#777" text-anchor="end">83</text>
+<line x1="346.6" y1="280.0" x2="346.6" y2="280.0" stroke="#444"/>
+<line x1="346.6" y1="298.0" x2="346.6" y2="298.0" stroke="#444"/>
+<line x1="228.4" y1="325.0" x2="246.3" y2="325.0" stroke="#444"/>
+<line x1="246.3" y1="316.0" x2="246.3" y2="334.0" stroke="#444"/>
+<text x="243.3" y="322.0" font-size="9" fill="#777" text-anchor="end">97</text>
+<line x1="246.3" y1="316.0" x2="291.6" y2="316.0" stroke="#444"/>
+<line x1="246.3" y1="334.0" x2="302.3" y2="334.0" stroke="#444"/>
+<text x="437.0" y="50.0" font-size="12" fill="#c62828" font-weight="bold">Lilyopsis medusa (SRA SRR6178974) [Prayidae]</text>
+<text x="431.6" y="68.0" font-size="12" fill="#222">Nanomia bijuga (genome GCA_032273505.1) [Agalmatidae]</text>
+<text x="358.5" y="86.0" font-size="12" fill="#222">Rhizophysa eysenhardtii (GenBank AY937351.1) [Rhizophysidae]</text>
+<text x="358.5" y="104.0" font-size="12" fill="#222">Rhizophysa eysenhardtii (SRA SRR23143257) [Rhizophysidae]</text>
+<text x="352.2" y="122.0" font-size="12" fill="#222">Siphonophorae sp. NHM_339 (GenBank KX384625.1)</text>
+<text x="344.4" y="140.0" font-size="12" fill="#222">Bathyphysa conifera (GenBank OR680124.1) [Rhizophysidae]</text>
+<text x="408.6" y="158.0" font-size="12" fill="#1565c0">Praya sp. AGC-2001 (GenBank AF358067.1) [Prayidae]</text>
+<text x="408.6" y="176.0" font-size="12" fill="#1565c0">Craseoa lathetica (GenBank AY937339.1) [Prayidae]</text>
+<text x="408.6" y="194.0" font-size="12" fill="#1565c0">Praya dubia (SRA SRR23143284) [Prayidae]</text>
+<text x="430.1" y="212.0" font-size="12" fill="#1565c0" font-weight="bold">Lilyopsis fluoracantha (GenBank AY919607.1) [Prayidae]</text>
+<text x="430.1" y="230.0" font-size="12" fill="#1565c0" font-weight="bold">Lilyopsis fluoracantha (SRA SRR23143265) [Prayidae]</text>
+<text x="437.0" y="248.0" font-size="12" fill="#1565c0" font-weight="bold">Lilyopsis medusa (GenBank DQ080014.1) [Prayidae]</text>
+<text x="351.6" y="266.0" font-size="12" fill="#222">Bargmannia sp. 147 CWD-2021 (GenBank MZ333606.1) [Pyrostephidae]</text>
+<text x="351.6" y="284.0" font-size="12" fill="#222">Bargmannia lata (SRA SRR23143264) [Pyrostephidae]</text>
+<text x="351.6" y="302.0" font-size="12" fill="#222">Bargmannia sp. (SRA SRR36270048) [Pyrostephidae]</text>
+<text x="296.6" y="320.0" font-size="12" fill="#777" font-style="italic">Turritopsis dohrnii (reference EU272638.1) [Oceaniidae]</text>
+<text x="307.3" y="338.0" font-size="12" fill="#777" font-style="italic">Hydractinia symbiolongicarpus (reference JQ407377.1) [Hydractiniidae]</text>
+<line x1="12" y1="360" x2="133.5" y2="360" stroke="#000"/>
+<text x="12" y="374" font-size="10" fill="#000">0.02 substitutions/site</text>
+<text x="12" y="392" font-size="10" fill="#555">red: this dataset; blue: same genus (bold) or family as its label; grey italic: outside siphonophores; numbers: ultrafast bootstrap support</text>
+</svg>

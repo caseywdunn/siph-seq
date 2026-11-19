@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="952" height="350" viewBox="0 0 952 350" font-family="Helvetica, Arial, sans-serif">
+<rect width="952" height="350" fill="#ffffff"/>
+<text x="12" y="20" font-size="14" font-weight="bold" fill="#000">CO1: Physalia physalis (SRA SRR871528) (groups with another family)</text>
+<line x1="12.0" y1="46.0" x2="12.0" y2="223.0" stroke="#444"/>
+<line x1="12.0" y1="46.0" x2="432.0" y2="46.0" stroke="#444"/>
+<line x1="12.0" y1="223.0" x2="38.5" y2="223.0" stroke="#444"/>
+<line x1="38.5" y1="188.6" x2="38.5" y2="257.5" stroke="#444"/>
+<line x1="38.5" y1="188.6" x2="76.4" y2="188.6" stroke="#444"/>
+<line x1="76.4" y1="151.2" x2="76.4" y2="226.0" stroke="#444"/>
+<text x="73.4" y="185.6" font-size="9" fill="#777" text-anchor="end">74</text>
+<line x1="76.4" y1="151.2" x2="196.7" y2="151.2" stroke="#444"/>
+<line x1="196.7" y1="110.1" x2="196.7" y2="192.2" stroke="#444"/>
+<text x="193.7" y="148.2" font-size="9" fill="#777" text-anchor="end">80</text>
+<line x1="196.7" y1="110.1" x2="240.5" y2="110.1" stroke="#444"/>
+<line x1="240.5" y1="84.2" x2="240.5" y2="136.0" stroke="#444"/>
+<text x="237.5" y="107.1" font-size="9" fill="#777" text-anchor="end">78</text>
+<line x1="240.5" y1="84.2" x2="265.1" y2="84.2" stroke="#444"/>
+<line x1="265.1" y1="64.0" x2="265.1" y2="104.5" stroke="#444"/>
+<text x="262.1" y="81.2" font-size="9" fill="#777" text-anchor="end">66</text>
+<line x1="265.1" y1="64.0" x2="279.8" y2="64.0" stroke="#444"/>
+<line x1="279.8" y1="64.0" x2="279.8" y2="64.0" stroke="#444"/>
+<text x="276.8" y="61.0" font-size="9" fill="#777" text-anchor="end">46</text>
+<line x1="279.8" y1="64.0" x2="366.0" y2="64.0" stroke="#444"/>
+<line x1="265.1" y1="104.5" x2="424.1" y2="104.5" stroke="#444"/>
+<line x1="424.1" y1="91.0" x2="424.1" y2="118.0" stroke="#444"/>
+<text x="421.1" y="101.5" font-size="9" fill="#777" text-anchor="end">100</text>
+<line x1="424.1" y1="91.0" x2="427.6" y2="91.0" stroke="#444"/>
+<line x1="427.6" y1="82.0" x2="427.6" y2="100.0" stroke="#444"/>
+<text x="424.6" y="88.0" font-size="9" fill="#777" text-anchor="end">66</text>
+<line x1="427.6" y1="82.0" x2="432.0" y2="82.0" stroke="#444"/>
+<line x1="427.6" y1="100.0" x2="427.6" y2="100.0" stroke="#444"/>
+<line x1="424.1" y1="118.0" x2="424.1" y2="118.0" stroke="#444"/>
+<line x1="240.5" y1="136.0" x2="301.6" y2="136.0" stroke="#444"/>
+<line x1="196.7" y1="192.2" x2="306.7" y2="192.2" stroke="#444"/>
+<line x1="306.7" y1="176.5" x2="306.7" y2="208.0" stroke="#444"/>
+<text x="303.7" y="189.2" font-size="9" fill="#777" text-anchor="end">99</text>
+<line x1="306.7" y1="176.5" x2="308.8" y2="176.5" stroke="#444"/>
+<line x1="308.8" y1="163.0" x2="308.8" y2="190.0" stroke="#444"/>
+<text x="305.8" y="173.5" font-size="9" fill="#777" text-anchor="end">99</text>
+<line x1="308.8" y1="163.0" x2="316.6" y2="163.0" stroke="#444"/>
+<line x1="316.6" y1="154.0" x2="316.6" y2="172.0" stroke="#444"/>
+<text x="313.6" y="160.0" font-size="9" fill="#777" text-anchor="end">100</text>
+<line x1="316.6" y1="154.0" x2="325.2" y2="154.0" stroke="#444"/>
+<line x1="316.6" y1="172.0" x2="329.0" y2="172.0" stroke="#444"/>
+<line x1="308.8" y1="190.0" x2="312.4" y2="190.0" stroke="#444"/>
+<line x1="306.7" y1="208.0" x2="306.7" y2="208.0" stroke="#444"/>
+<line x1="76.4" y1="226.0" x2="294.0" y2="226.0" stroke="#444"/>
+<line x1="38.5" y1="257.5" x2="92.2" y2="257.5" stroke="#444"/>
+<line x1="92.2" y1="244.0" x2="92.2" y2="271.0" stroke="#444"/>
+<text x="89.2" y="254.5" font-size="9" fill="#777" text-anchor="end">100</text>
+<line x1="92.2" y1="244.0" x2="268.2" y2="244.0" stroke="#444"/>
+<line x1="92.2" y1="271.0" x2="352.9" y2="271.0" stroke="#444"/>
+<line x1="352.9" y1="262.0" x2="352.9" y2="280.0" stroke="#444"/>
+<text x="349.9" y="268.0" font-size="9" fill="#777" text-anchor="end">100</text>
+<line x1="352.9" y1="262.0" x2="352.9" y2="262.0" stroke="#444"/>
+<line x1="352.9" y1="280.0" x2="354.6" y2="280.0" stroke="#444"/>
+<text x="437.0" y="50.0" font-size="12" fill="#c62828" font-weight="bold">Physalia physalis (SRA SRR871528) [Physaliidae]</text>
+<text x="371.0" y="68.0" font-size="12" fill="#222">Apolemia sp. (GenBank PP409329.1) [Apolemiidae]</text>
+<text x="437.0" y="86.0" font-size="12" fill="#1565c0" font-weight="bold">Physalia minuta (GenBank PZ224448.1) [Physaliidae]</text>
+<text x="432.6" y="104.0" font-size="12" fill="#1565c0" font-weight="bold">Physalia sp. DRP-2009 (GenBank FJ916966.1) [Physaliidae]</text>
+<text x="429.1" y="122.0" font-size="12" fill="#1565c0" font-weight="bold">Physalia sp. DRP-2009 (GenBank FJ916970.1) [Physaliidae]</text>
+<text x="306.6" y="140.0" font-size="12" fill="#222">Siphonophorae sp. NHM_339 (GenBank KX384615.1)</text>
+<text x="330.2" y="158.0" font-size="12" fill="#222">Lensia campanella (GenBank GQ120001.1) [Diphyidae]</text>
+<text x="334.0" y="176.0" font-size="12" fill="#222">Lensia campanella (GenBank GQ120066.1) [Diphyidae]</text>
+<text x="317.4" y="194.0" font-size="12" fill="#222">Lensia campanella (GenBank JQ353738.1) [Diphyidae]</text>
+<text x="311.7" y="212.0" font-size="12" fill="#222">Lensia campanella (GenBank JQ353739.1) [Diphyidae]</text>
+<text x="299.0" y="230.0" font-size="12" fill="#777" font-style="italic">Craspedacusta sowerbii (reference MN601815.1) [Olindiidae]</text>
+<text x="273.2" y="248.0" font-size="12" fill="#222">Lilyopsis fluoracantha (GenBank GQ120015.1) [Prayidae]</text>
+<text x="357.9" y="266.0" font-size="12" fill="#222">Lilyopsis medusa (GenBank GQ120016.1) [Prayidae]</text>
+<text x="359.6" y="284.0" font-size="12" fill="#222">Lilyopsis medusa (GenBank GQ120017.1) [Prayidae]</text>
+<line x1="12" y1="306" x2="162.5" y2="306" stroke="#000"/>
+<text x="12" y="320" font-size="10" fill="#000">0.2 substitutions/site</text>
+<text x="12" y="338" font-size="10" fill="#555">red: this dataset; blue: same genus (bold) or family as its label; grey italic: outside siphonophores; numbers: ultrafast bootstrap support</text>
+</svg>

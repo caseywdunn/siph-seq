@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="952" height="350" viewBox="0 0 952 350" font-family="Helvetica, Arial, sans-serif">
+<rect width="952" height="350" fill="#ffffff"/>
+<text x="12" y="20" font-size="14" font-weight="bold" fill="#000">28S: Apolemiidae environmental sample (GenBank MZ027186.1) (groups with another family)</text>
+<line x1="12.0" y1="68.5" x2="12.0" y2="196.2" stroke="#444"/>
+<line x1="12.0" y1="68.5" x2="265.5" y2="68.5" stroke="#444"/>
+<line x1="265.5" y1="55.0" x2="265.5" y2="82.0" stroke="#444"/>
+<text x="262.5" y="65.5" font-size="9" fill="#777" text-anchor="end">99</text>
+<line x1="265.5" y1="55.0" x2="325.6" y2="55.0" stroke="#444"/>
+<line x1="325.6" y1="46.0" x2="325.6" y2="64.0" stroke="#444"/>
+<text x="322.6" y="52.0" font-size="9" fill="#777" text-anchor="end">98</text>
+<line x1="325.6" y1="46.0" x2="419.7" y2="46.0" stroke="#444"/>
+<line x1="325.6" y1="64.0" x2="325.8" y2="64.0" stroke="#444"/>
+<line x1="265.5" y1="82.0" x2="432.0" y2="82.0" stroke="#444"/>
+<line x1="12.0" y1="196.2" x2="115.6" y2="196.2" stroke="#444"/>
+<line x1="115.6" y1="196.2" x2="115.6" y2="196.2" stroke="#444"/>
+<text x="112.6" y="193.2" font-size="9" fill="#777" text-anchor="end">99</text>
+<line x1="115.6" y1="196.2" x2="309.5" y2="196.2" stroke="#444"/>
+<line x1="309.5" y1="141.6" x2="309.5" y2="250.8" stroke="#444"/>
+<text x="306.5" y="193.2" font-size="9" fill="#777" text-anchor="end">86</text>
+<line x1="309.5" y1="141.6" x2="344.1" y2="141.6" stroke="#444"/>
+<line x1="344.1" y1="109.0" x2="344.1" y2="174.2" stroke="#444"/>
+<text x="341.1" y="138.6" font-size="9" fill="#777" text-anchor="end">76</text>
+<line x1="344.1" y1="109.0" x2="344.3" y2="109.0" stroke="#444"/>
+<line x1="344.3" y1="100.0" x2="344.3" y2="118.0" stroke="#444"/>
+<text x="341.3" y="106.0" font-size="9" fill="#777" text-anchor="end">42</text>
+<line x1="344.3" y1="100.0" x2="344.5" y2="100.0" stroke="#444"/>
+<line x1="344.3" y1="118.0" x2="344.3" y2="118.0" stroke="#444"/>
+<line x1="344.1" y1="174.2" x2="344.2" y2="174.2" stroke="#444"/>
+<line x1="344.2" y1="158.5" x2="344.2" y2="190.0" stroke="#444"/>
+<line x1="344.2" y1="158.5" x2="344.2" y2="158.5" stroke="#444"/>
+<line x1="344.2" y1="145.0" x2="344.2" y2="172.0" stroke="#444"/>
+<line x1="344.2" y1="145.0" x2="344.2" y2="145.0" stroke="#444"/>
+<line x1="344.2" y1="136.0" x2="344.2" y2="154.0" stroke="#444"/>
+<line x1="344.2" y1="136.0" x2="344.2" y2="136.0" stroke="#444"/>
+<line x1="344.2" y1="154.0" x2="344.2" y2="154.0" stroke="#444"/>
+<line x1="344.2" y1="172.0" x2="344.2" y2="172.0" stroke="#444"/>
+<line x1="344.2" y1="190.0" x2="344.2" y2="190.0" stroke="#444"/>
+<line x1="309.5" y1="250.8" x2="331.8" y2="250.8" stroke="#444"/>
+<line x1="331.8" y1="230.5" x2="331.8" y2="271.0" stroke="#444"/>
+<text x="328.8" y="247.8" font-size="9" fill="#777" text-anchor="end">90</text>
+<line x1="331.8" y1="230.5" x2="356.1" y2="230.5" stroke="#444"/>
+<line x1="356.1" y1="217.0" x2="356.1" y2="244.0" stroke="#444"/>
+<text x="353.1" y="227.5" font-size="9" fill="#777" text-anchor="end">91</text>
+<line x1="356.1" y1="217.0" x2="356.1" y2="217.0" stroke="#444"/>
+<line x1="356.1" y1="208.0" x2="356.1" y2="226.0" stroke="#444"/>
+<text x="353.1" y="214.0" font-size="9" fill="#777" text-anchor="end">74</text>
+<line x1="356.1" y1="208.0" x2="356.2" y2="208.0" stroke="#444"/>
+<line x1="356.1" y1="226.0" x2="356.2" y2="226.0" stroke="#444"/>
+<line x1="356.1" y1="244.0" x2="432.0" y2="244.0" stroke="#444"/>
+<line x1="331.8" y1="271.0" x2="383.1" y2="271.0" stroke="#444"/>
+<line x1="383.1" y1="262.0" x2="383.1" y2="280.0" stroke="#444"/>
+<text x="380.1" y="268.0" font-size="9" fill="#777" text-anchor="end">99</text>
+<line x1="383.1" y1="262.0" x2="383.2" y2="262.0" stroke="#444"/>
+<line x1="383.1" y1="280.0" x2="383.2" y2="280.0" stroke="#444"/>
+<text x="424.7" y="50.0" font-size="12" fill="#1565c0">Apolemiidae environmental sample (GenBank MZ027191.1) [Apolemiidae]</text>
+<text x="330.8" y="68.0" font-size="12" fill="#1565c0">Apolemia lanosa (GenBank KF214716.1) [Apolemiidae]</text>
+<text x="437.0" y="86.0" font-size="12" fill="#1565c0">Apolemiidae environmental sample (GenBank MZ027192.1) [Apolemiidae]</text>
+<text x="349.5" y="104.0" font-size="12" fill="#222">Erenna sp. PC-2008 (GenBank EU305512.1) [Erennidae]</text>
+<text x="349.3" y="122.0" font-size="12" fill="#222">Erenna laciniata (GenBank KX752714.1) [Erennidae]</text>
+<text x="349.2" y="140.0" font-size="12" fill="#222">Erenna laciniata (GenBank KX752713.1) [Erennidae]</text>
+<text x="349.2" y="158.0" font-size="12" fill="#222">Erenna sirena (GenBank KX752717.1) [Erennidae]</text>
+<text x="349.2" y="176.0" font-size="12" fill="#222">Erenna laciniata (GenBank KX752715.1) [Erennidae]</text>
+<text x="349.2" y="194.0" font-size="12" fill="#222">Erenna sirena (GenBank KX752716.1) [Erennidae]</text>
+<text x="361.2" y="212.0" font-size="12" fill="#222">Erennidae environmental sample (GenBank MZ027176.1) [Erennidae]</text>
+<text x="361.2" y="230.0" font-size="12" fill="#222">Erennidae environmental sample (GenBank MZ027184.1) [Erennidae]</text>
+<text x="437.0" y="248.0" font-size="12" fill="#c62828" font-weight="bold">Apolemiidae environmental sample (GenBank MZ027186.1) [Apolemiidae]</text>
+<text x="388.2" y="266.0" font-size="12" fill="#222">Erenna insidiator (GenBank KX752711.1) [Erennidae]</text>
+<text x="388.2" y="284.0" font-size="12" fill="#222">Erenna insidiator (GenBank KX752712.1) [Erennidae]</text>
+<line x1="12" y1="306" x2="112.6" y2="306" stroke="#000"/>
+<text x="12" y="320" font-size="10" fill="#000">0.002 substitutions/site</text>
+<text x="12" y="338" font-size="10" fill="#555">red: this dataset; blue: same genus (bold) or family as its label; grey italic: outside siphonophores; numbers: ultrafast bootstrap support</text>
+</svg>

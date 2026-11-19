@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="952" height="332" viewBox="0 0 952 332" font-family="Helvetica, Arial, sans-serif">
+<rect width="952" height="332" fill="#ffffff"/>
+<text x="12" y="20" font-size="14" font-weight="bold" fill="#000">28S: Hippopodiidae environmental sample (GenBank MZ027189.1) (groups with another family)</text>
+<line x1="12.0" y1="55.0" x2="12.0" y2="199.0" stroke="#444"/>
+<line x1="12.0" y1="55.0" x2="300.4" y2="55.0" stroke="#444"/>
+<line x1="300.4" y1="55.0" x2="300.4" y2="55.0" stroke="#444"/>
+<text x="297.4" y="52.0" font-size="9" fill="#777" text-anchor="end">99</text>
+<line x1="300.4" y1="55.0" x2="432.0" y2="55.0" stroke="#444"/>
+<line x1="432.0" y1="46.0" x2="432.0" y2="64.0" stroke="#444"/>
+<text x="429.0" y="52.0" font-size="9" fill="#777" text-anchor="end">100</text>
+<line x1="432.0" y1="46.0" x2="432.0" y2="46.0" stroke="#444"/>
+<line x1="432.0" y1="64.0" x2="432.0" y2="64.0" stroke="#444"/>
+<line x1="12.0" y1="199.0" x2="292.4" y2="199.0" stroke="#444"/>
+<line x1="292.4" y1="163.0" x2="292.4" y2="235.0" stroke="#444"/>
+<text x="289.4" y="196.0" font-size="9" fill="#777" text-anchor="end">99</text>
+<line x1="292.4" y1="163.0" x2="321.2" y2="163.0" stroke="#444"/>
+<line x1="321.2" y1="136.0" x2="321.2" y2="190.0" stroke="#444"/>
+<text x="318.2" y="160.0" font-size="9" fill="#777" text-anchor="end">98</text>
+<line x1="321.2" y1="136.0" x2="340.9" y2="136.0" stroke="#444"/>
+<line x1="340.9" y1="109.0" x2="340.9" y2="163.0" stroke="#444"/>
+<text x="337.9" y="133.0" font-size="9" fill="#777" text-anchor="end">98</text>
+<line x1="340.9" y1="109.0" x2="341.0" y2="109.0" stroke="#444"/>
+<line x1="341.0" y1="91.0" x2="341.0" y2="127.0" stroke="#444"/>
+<text x="338.0" y="106.0" font-size="9" fill="#777" text-anchor="end">74</text>
+<line x1="341.0" y1="91.0" x2="388.9" y2="91.0" stroke="#444"/>
+<line x1="388.9" y1="82.0" x2="388.9" y2="100.0" stroke="#444"/>
+<text x="385.9" y="88.0" font-size="9" fill="#777" text-anchor="end">100</text>
+<line x1="388.9" y1="82.0" x2="389.0" y2="82.0" stroke="#444"/>
+<line x1="388.9" y1="100.0" x2="389.0" y2="100.0" stroke="#444"/>
+<line x1="341.0" y1="127.0" x2="353.4" y2="127.0" stroke="#444"/>
+<line x1="353.4" y1="118.0" x2="353.4" y2="136.0" stroke="#444"/>
+<text x="350.4" y="124.0" font-size="9" fill="#777" text-anchor="end">88</text>
+<line x1="353.4" y1="118.0" x2="377.6" y2="118.0" stroke="#444"/>
+<line x1="353.4" y1="136.0" x2="366.2" y2="136.0" stroke="#444"/>
+<line x1="340.9" y1="163.0" x2="432.0" y2="163.0" stroke="#444"/>
+<line x1="432.0" y1="154.0" x2="432.0" y2="172.0" stroke="#444"/>
+<text x="429.0" y="160.0" font-size="9" fill="#777" text-anchor="end">100</text>
+<line x1="432.0" y1="154.0" x2="432.0" y2="154.0" stroke="#444"/>
+<line x1="432.0" y1="172.0" x2="432.0" y2="172.0" stroke="#444"/>
+<line x1="321.2" y1="190.0" x2="321.2" y2="190.0" stroke="#444"/>
+<line x1="292.4" y1="235.0" x2="360.1" y2="235.0" stroke="#444"/>
+<line x1="360.1" y1="217.0" x2="360.1" y2="253.0" stroke="#444"/>
+<text x="357.1" y="232.0" font-size="9" fill="#777" text-anchor="end">99</text>
+<line x1="360.1" y1="217.0" x2="372.4" y2="217.0" stroke="#444"/>
+<line x1="372.4" y1="208.0" x2="372.4" y2="226.0" stroke="#444"/>
+<text x="369.4" y="214.0" font-size="9" fill="#777" text-anchor="end">99</text>
+<line x1="372.4" y1="208.0" x2="384.6" y2="208.0" stroke="#444"/>
+<line x1="372.4" y1="226.0" x2="396.7" y2="226.0" stroke="#444"/>
+<line x1="360.1" y1="253.0" x2="372.0" y2="253.0" stroke="#444"/>
+<line x1="372.0" y1="244.0" x2="372.0" y2="262.0" stroke="#444"/>
+<text x="369.0" y="250.0" font-size="9" fill="#777" text-anchor="end">100</text>
+<line x1="372.0" y1="244.0" x2="372.1" y2="244.0" stroke="#444"/>
+<line x1="372.0" y1="262.0" x2="372.1" y2="262.0" stroke="#444"/>
+<text x="437.0" y="50.0" font-size="12" fill="#1565c0">Hippopodius hippopus (GenBank EU305517.1) [Hippopodiidae]</text>
+<text x="437.0" y="68.0" font-size="12" fill="#1565c0">Hippopodius hippopus (SRA SRR23143261) [Hippopodiidae]</text>
+<text x="394.0" y="86.0" font-size="12" fill="#222">Apolemia sp. PC-2008 (GenBank EU272546.1) [Apolemiidae]</text>
+<text x="394.0" y="104.0" font-size="12" fill="#222">Apolemia sp. 3 CWD-2005 (SRA SRR23143290) [Apolemiidae]</text>
+<text x="382.6" y="122.0" font-size="12" fill="#222">Erennidae environmental sample (GenBank MZ027185.1) [Erennidae]</text>
+<text x="371.2" y="140.0" font-size="12" fill="#222">Apolemiidae environmental sample (GenBank MZ027191.1) [Apolemiidae]</text>
+<text x="437.0" y="158.0" font-size="12" fill="#222">Apolemia rubriversa (SRA SRR23143267) [Apolemiidae]</text>
+<text x="437.0" y="176.0" font-size="12" fill="#222">Apolemia rubriversa (GenBank KF214717.1) [Apolemiidae]</text>
+<text x="326.2" y="194.0" font-size="12" fill="#222">Apolemia lanosa (GenBank KF214716.1) [Apolemiidae]</text>
+<text x="389.6" y="212.0" font-size="12" fill="#222">Erennidae environmental sample (GenBank MZ027187.1) [Erennidae]</text>
+<text x="401.7" y="230.0" font-size="12" fill="#222">Siphonophorae sp. (GenBank PV770871.1)</text>
+<text x="377.1" y="248.0" font-size="12" fill="#c62828" font-weight="bold">Hippopodiidae environmental sample (GenBank MZ027189.1) [Hippopodiidae]</text>
+<text x="377.1" y="266.0" font-size="12" fill="#222">Apolemiidae environmental sample (GenBank MZ027192.1) [Apolemiidae]</text>
+<line x1="12" y1="288" x2="132.4" y2="288" stroke="#000"/>
+<text x="12" y="302" font-size="10" fill="#000">0.005 substitutions/site</text>
+<text x="12" y="320" font-size="10" fill="#555">red: this dataset; blue: same genus (bold) or family as its label; grey italic: outside siphonophores; numbers: ultrafast bootstrap support</text>
+</svg>

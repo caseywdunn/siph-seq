@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="952" height="404" viewBox="0 0 952 404" font-family="Helvetica, Arial, sans-serif">
+<rect width="952" height="404" fill="#ffffff"/>
+<text x="12" y="20" font-size="14" font-weight="bold" fill="#000">18S: Nanomia bijuga (genome GCA_032273505.1) (groups with another family)</text>
+<line x1="12.0" y1="55.0" x2="12.0" y2="249.1" stroke="#444"/>
+<line x1="12.0" y1="55.0" x2="426.4" y2="55.0" stroke="#444"/>
+<line x1="426.4" y1="46.0" x2="426.4" y2="64.0" stroke="#444"/>
+<text x="423.4" y="52.0" font-size="9" fill="#777" text-anchor="end">100</text>
+<line x1="426.4" y1="46.0" x2="432.0" y2="46.0" stroke="#444"/>
+<line x1="426.4" y1="64.0" x2="426.4" y2="64.0" stroke="#444"/>
+<line x1="12.0" y1="249.1" x2="250.8" y2="249.1" stroke="#444"/>
+<line x1="250.8" y1="173.1" x2="250.8" y2="325.0" stroke="#444"/>
+<text x="247.8" y="246.1" font-size="9" fill="#777" text-anchor="end">100</text>
+<line x1="250.8" y1="173.1" x2="307.4" y2="173.1" stroke="#444"/>
+<line x1="307.4" y1="109.0" x2="307.4" y2="237.2" stroke="#444"/>
+<text x="304.4" y="170.1" font-size="9" fill="#777" text-anchor="end">100</text>
+<line x1="307.4" y1="109.0" x2="345.3" y2="109.0" stroke="#444"/>
+<line x1="345.3" y1="109.0" x2="345.3" y2="109.0" stroke="#444"/>
+<text x="342.3" y="106.0" font-size="9" fill="#777" text-anchor="end">100</text>
+<line x1="345.3" y1="109.0" x2="358.3" y2="109.0" stroke="#444"/>
+<line x1="358.3" y1="91.0" x2="358.3" y2="127.0" stroke="#444"/>
+<text x="355.3" y="106.0" font-size="9" fill="#777" text-anchor="end">99</text>
+<line x1="358.3" y1="91.0" x2="380.3" y2="91.0" stroke="#444"/>
+<line x1="380.3" y1="82.0" x2="380.3" y2="100.0" stroke="#444"/>
+<text x="377.3" y="88.0" font-size="9" fill="#777" text-anchor="end">100</text>
+<line x1="380.3" y1="82.0" x2="380.3" y2="82.0" stroke="#444"/>
+<line x1="380.3" y1="100.0" x2="380.3" y2="100.0" stroke="#444"/>
+<line x1="358.3" y1="127.0" x2="365.7" y2="127.0" stroke="#444"/>
+<line x1="365.7" y1="118.0" x2="365.7" y2="136.0" stroke="#444"/>
+<text x="362.7" y="124.0" font-size="9" fill="#777" text-anchor="end">95</text>
+<line x1="365.7" y1="118.0" x2="373.8" y2="118.0" stroke="#444"/>
+<line x1="365.7" y1="136.0" x2="365.7" y2="136.0" stroke="#444"/>
+<line x1="307.4" y1="237.2" x2="369.5" y2="237.2" stroke="#444"/>
+<line x1="369.5" y1="199.0" x2="369.5" y2="275.5" stroke="#444"/>
+<text x="366.5" y="234.2" font-size="9" fill="#777" text-anchor="end">100</text>
+<line x1="369.5" y1="199.0" x2="388.1" y2="199.0" stroke="#444"/>
+<line x1="388.1" y1="167.5" x2="388.1" y2="230.5" stroke="#444"/>
+<text x="385.1" y="196.0" font-size="9" fill="#777" text-anchor="end">51</text>
+<line x1="388.1" y1="167.5" x2="409.8" y2="167.5" stroke="#444"/>
+<line x1="409.8" y1="154.0" x2="409.8" y2="181.0" stroke="#444"/>
+<text x="406.8" y="164.5" font-size="9" fill="#777" text-anchor="end">45</text>
+<line x1="409.8" y1="154.0" x2="432.0" y2="154.0" stroke="#444"/>
+<line x1="409.8" y1="181.0" x2="413.5" y2="181.0" stroke="#444"/>
+<line x1="413.5" y1="172.0" x2="413.5" y2="190.0" stroke="#444"/>
+<text x="410.5" y="178.0" font-size="9" fill="#777" text-anchor="end">28</text>
+<line x1="413.5" y1="172.0" x2="417.6" y2="172.0" stroke="#444"/>
+<line x1="413.5" y1="190.0" x2="417.1" y2="190.0" stroke="#444"/>
+<line x1="388.1" y1="230.5" x2="399.2" y2="230.5" stroke="#444"/>
+<line x1="399.2" y1="217.0" x2="399.2" y2="244.0" stroke="#444"/>
+<text x="396.2" y="227.5" font-size="9" fill="#777" text-anchor="end">99</text>
+<line x1="399.2" y1="217.0" x2="399.2" y2="217.0" stroke="#444"/>
+<line x1="399.2" y1="208.0" x2="399.2" y2="226.0" stroke="#444"/>
+<text x="396.2" y="214.0" font-size="9" fill="#777" text-anchor="end">81</text>
+<line x1="399.2" y1="208.0" x2="399.2" y2="208.0" stroke="#444"/>
+<line x1="399.2" y1="226.0" x2="399.2" y2="226.0" stroke="#444"/>
+<line x1="399.2" y1="244.0" x2="399.2" y2="244.0" stroke="#444"/>
+<line x1="369.5" y1="275.5" x2="373.1" y2="275.5" stroke="#444"/>
+<line x1="373.1" y1="262.0" x2="373.1" y2="289.0" stroke="#444"/>
+<text x="370.1" y="272.5" font-size="9" fill="#777" text-anchor="end">96</text>
+<line x1="373.1" y1="262.0" x2="373.1" y2="262.0" stroke="#444"/>
+<line x1="373.1" y1="289.0" x2="373.1" y2="289.0" stroke="#444"/>
+<line x1="373.1" y1="280.0" x2="373.1" y2="298.0" stroke="#444"/>
+<text x="370.1" y="286.0" font-size="9" fill="#777" text-anchor="end">83</text>
+<line x1="373.1" y1="280.0" x2="373.1" y2="280.0" stroke="#444"/>
+<line x1="373.1" y1="298.0" x2="373.1" y2="298.0" stroke="#444"/>
+<line x1="250.8" y1="325.0" x2="269.3" y2="325.0" stroke="#444"/>
+<line x1="269.3" y1="316.0" x2="269.3" y2="334.0" stroke="#444"/>
+<text x="266.3" y="322.0" font-size="9" fill="#777" text-anchor="end">97</text>
+<line x1="269.3" y1="316.0" x2="316.1" y2="316.0" stroke="#444"/>
+<line x1="269.3" y1="334.0" x2="327.2" y2="334.0" stroke="#444"/>
+<text x="437.0" y="50.0" font-size="12" fill="#222">Lilyopsis medusa (SRA SRR6178974) [Prayidae]</text>
+<text x="431.4" y="68.0" font-size="12" fill="#c62828" font-weight="bold">Nanomia bijuga (genome GCA_032273505.1) [Agalmatidae]</text>
+<text x="385.3" y="86.0" font-size="12" fill="#222">Rhizophysa eysenhardtii (GenBank AY937351.1) [Rhizophysidae]</text>
+<text x="385.3" y="104.0" font-size="12" fill="#222">Rhizophysa eysenhardtii (SRA SRR23143257) [Rhizophysidae]</text>
+<text x="378.8" y="122.0" font-size="12" fill="#222">Siphonophorae sp. NHM_339 (GenBank KX384625.1)</text>
+<text x="370.7" y="140.0" font-size="12" fill="#222">Bathyphysa conifera (GenBank OR680124.1) [Rhizophysidae]</text>
+<text x="437.0" y="158.0" font-size="12" fill="#1565c0" font-weight="bold">Nanomia septata (GenBank AF358071.1) [Agalmatidae]</text>
+<text x="422.6" y="176.0" font-size="12" fill="#1565c0" font-weight="bold">Nanomia sp. USNM IZ 1450301 (GenBank MW204046.1) [Agalmatidae]</text>
+<text x="422.1" y="194.0" font-size="12" fill="#1565c0" font-weight="bold">Nanomia cara (GenBank PP213758.1) [Agalmatidae]</text>
+<text x="404.2" y="212.0" font-size="12" fill="#1565c0">Cordagalma ordinatum (GenBank AY937317.1) [Agalmatidae]</text>
+<text x="404.2" y="230.0" font-size="12" fill="#1565c0">Cordagalma (SRA SRR23143278) [Agalmatidae]</text>
+<text x="404.2" y="248.0" font-size="12" fill="#1565c0">Cordagalma abyssorum (GenBank MZ333610.1) [Agalmatidae]</text>
+<text x="378.1" y="266.0" font-size="12" fill="#222">Bargmannia sp. 147 CWD-2021 (GenBank MZ333606.1) [Pyrostephidae]</text>
+<text x="378.1" y="284.0" font-size="12" fill="#222">Bargmannia lata (SRA SRR23143264) [Pyrostephidae]</text>
+<text x="378.1" y="302.0" font-size="12" fill="#222">Bargmannia sp. (SRA SRR36270048) [Pyrostephidae]</text>
+<text x="321.1" y="320.0" font-size="12" fill="#777" font-style="italic">Turritopsis dohrnii (reference EU272638.1) [Oceaniidae]</text>
+<text x="332.2" y="338.0" font-size="12" fill="#777" font-style="italic">Hydractinia symbiolongicarpus (reference JQ407377.1) [Hydractiniidae]</text>
+<line x1="12" y1="360" x2="137.7" y2="360" stroke="#000"/>
+<text x="12" y="374" font-size="10" fill="#000">0.02 substitutions/site</text>
+<text x="12" y="392" font-size="10" fill="#555">red: this dataset; blue: same genus (bold) or family as its label; grey italic: outside siphonophores; numbers: ultrafast bootstrap support</text>
+</svg>

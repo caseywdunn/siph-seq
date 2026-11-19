@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="952" height="350" viewBox="0 0 952 350" font-family="Helvetica, Arial, sans-serif">
+<rect width="952" height="350" fill="#ffffff"/>
+<text x="12" y="20" font-size="14" font-weight="bold" fill="#000">CO1: Halistemma rubrum (GenBank OZ505748.1) (groups with another family)</text>
+<line x1="12.0" y1="46.0" x2="12.0" y2="230.6" stroke="#444"/>
+<line x1="12.0" y1="46.0" x2="432.0" y2="46.0" stroke="#444"/>
+<line x1="12.0" y1="230.6" x2="398.1" y2="230.6" stroke="#444"/>
+<line x1="398.1" y1="190.3" x2="398.1" y2="271.0" stroke="#444"/>
+<line x1="398.1" y1="190.3" x2="405.1" y2="190.3" stroke="#444"/>
+<line x1="405.1" y1="150.1" x2="405.1" y2="230.5" stroke="#444"/>
+<text x="402.1" y="187.3" font-size="9" fill="#777" text-anchor="end">14</text>
+<line x1="405.1" y1="150.1" x2="414.3" y2="150.1" stroke="#444"/>
+<line x1="414.3" y1="110.1" x2="414.3" y2="190.0" stroke="#444"/>
+<text x="411.3" y="147.1" font-size="9" fill="#777" text-anchor="end">77</text>
+<line x1="414.3" y1="110.1" x2="417.3" y2="110.1" stroke="#444"/>
+<line x1="417.3" y1="86.5" x2="417.3" y2="133.8" stroke="#444"/>
+<text x="414.3" y="107.1" font-size="9" fill="#777" text-anchor="end">92</text>
+<line x1="417.3" y1="86.5" x2="418.5" y2="86.5" stroke="#444"/>
+<line x1="418.5" y1="73.0" x2="418.5" y2="100.0" stroke="#444"/>
+<text x="415.5" y="83.5" font-size="9" fill="#777" text-anchor="end">59</text>
+<line x1="418.5" y1="73.0" x2="423.9" y2="73.0" stroke="#444"/>
+<line x1="423.9" y1="73.0" x2="423.9" y2="73.0" stroke="#444"/>
+<text x="420.9" y="70.0" font-size="9" fill="#777" text-anchor="end">100</text>
+<line x1="423.9" y1="73.0" x2="426.1" y2="73.0" stroke="#444"/>
+<line x1="426.1" y1="64.0" x2="426.1" y2="82.0" stroke="#444"/>
+<text x="423.1" y="70.0" font-size="9" fill="#777" text-anchor="end">100</text>
+<line x1="426.1" y1="64.0" x2="432.0" y2="64.0" stroke="#444"/>
+<line x1="426.1" y1="82.0" x2="432.0" y2="82.0" stroke="#444"/>
+<line x1="418.5" y1="100.0" x2="428.6" y2="100.0" stroke="#444"/>
+<line x1="417.3" y1="133.8" x2="424.2" y2="133.8" stroke="#444"/>
+<line x1="424.2" y1="118.0" x2="424.2" y2="149.5" stroke="#444"/>
+<text x="421.2" y="130.8" font-size="9" fill="#777" text-anchor="end">100</text>
+<line x1="424.2" y1="118.0" x2="431.1" y2="118.0" stroke="#444"/>
+<line x1="424.2" y1="149.5" x2="428.0" y2="149.5" stroke="#444"/>
+<line x1="428.0" y1="136.0" x2="428.0" y2="163.0" stroke="#444"/>
+<text x="425.0" y="146.5" font-size="9" fill="#777" text-anchor="end">100</text>
+<line x1="428.0" y1="136.0" x2="428.0" y2="136.0" stroke="#444"/>
+<line x1="428.0" y1="163.0" x2="428.1" y2="163.0" stroke="#444"/>
+<line x1="428.1" y1="154.0" x2="428.1" y2="172.0" stroke="#444"/>
+<text x="425.1" y="160.0" font-size="9" fill="#777" text-anchor="end">100</text>
+<line x1="428.1" y1="154.0" x2="428.1" y2="154.0" stroke="#444"/>
+<line x1="428.1" y1="172.0" x2="428.3" y2="172.0" stroke="#444"/>
+<line x1="414.3" y1="190.0" x2="422.3" y2="190.0" stroke="#444"/>
+<line x1="405.1" y1="230.5" x2="409.4" y2="230.5" stroke="#444"/>
+<line x1="409.4" y1="217.0" x2="409.4" y2="244.0" stroke="#444"/>
+<text x="406.4" y="227.5" font-size="9" fill="#777" text-anchor="end">64</text>
+<line x1="409.4" y1="217.0" x2="410.4" y2="217.0" stroke="#444"/>
+<line x1="410.4" y1="208.0" x2="410.4" y2="226.0" stroke="#444"/>
+<text x="407.4" y="214.0" font-size="9" fill="#777" text-anchor="end">100</text>
+<line x1="410.4" y1="208.0" x2="410.4" y2="208.0" stroke="#444"/>
+<line x1="410.4" y1="226.0" x2="410.4" y2="226.0" stroke="#444"/>
+<line x1="409.4" y1="244.0" x2="411.3" y2="244.0" stroke="#444"/>
+<line x1="398.1" y1="271.0" x2="398.1" y2="271.0" stroke="#444"/>
+<line x1="398.1" y1="262.0" x2="398.1" y2="280.0" stroke="#444"/>
+<text x="395.1" y="268.0" font-size="9" fill="#777" text-anchor="end">100</text>
+<line x1="398.1" y1="262.0" x2="398.1" y2="262.0" stroke="#444"/>
+<line x1="398.1" y1="280.0" x2="398.1" y2="280.0" stroke="#444"/>
+<text x="437.0" y="50.0" font-size="12" fill="#c62828" font-weight="bold">Halistemma rubrum (GenBank OZ505748.1) [Agalmatidae]</text>
+<text x="437.0" y="68.0" font-size="12" fill="#1565c0" font-weight="bold">Halistemma rubrum (GenBank OQ957197.1) [Agalmatidae]</text>
+<text x="437.0" y="86.0" font-size="12" fill="#1565c0" font-weight="bold">Halistemma cupulifera (GenBank GQ119991.1) [Agalmatidae]</text>
+<text x="433.6" y="104.0" font-size="12" fill="#222">Physophora hydrostatica (GenBank GQ120035.1) [Physophoridae]</text>
+<text x="436.1" y="122.0" font-size="12" fill="#1565c0" font-weight="bold">Halistemma sp. BO-2021 (GenBank GQ119992.1) [Agalmatidae]</text>
+<text x="433.0" y="140.0" font-size="12" fill="#1565c0">Marrus orthocanna (GenBank PP409372.1) [Agalmatidae]</text>
+<text x="433.1" y="158.0" font-size="12" fill="#1565c0">Marrus orthocanna (GenBank PP409382.1) [Agalmatidae]</text>
+<text x="433.3" y="176.0" font-size="12" fill="#1565c0">Marrus orthocanna (GenBank PP409383.1) [Agalmatidae]</text>
+<text x="427.3" y="194.0" font-size="12" fill="#222">Forskalia asymmetrica (SRA SRR1548361) [Forskaliidae]</text>
+<text x="415.4" y="212.0" font-size="12" fill="#222">Forskalia edwardsii (GenBank AY937369.1) [Forskaliidae]</text>
+<text x="415.4" y="230.0" font-size="12" fill="#222">Forskalia edwardsii (GenBank JX121607.1) [Forskaliidae]</text>
+<text x="416.3" y="248.0" font-size="12" fill="#222">Forskalia sp. BMOO-07268 (GenBank KC706692.1) [Forskaliidae]</text>
+<text x="403.1" y="266.0" font-size="12" fill="#222">Forskalia tholoides (GenBank AY937370.1) [Forskaliidae]</text>
+<text x="403.1" y="284.0" font-size="12" fill="#222">Forskalia tholoides (GenBank GQ119985.1) [Forskaliidae]</text>
+<line x1="12" y1="306" x2="172.9" y2="306" stroke="#000"/>
+<text x="12" y="320" font-size="10" fill="#000">2 substitutions/site</text>
+<text x="12" y="338" font-size="10" fill="#555">red: this dataset; blue: same genus (bold) or family as its label; grey italic: outside siphonophores; numbers: ultrafast bootstrap support</text>
+</svg>
