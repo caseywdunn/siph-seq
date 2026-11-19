@@ -1,0 +1,141 @@
+# Configuration for the siphonophore public sequence inventory.
+#
+# `release` names one snapshot of the public databases. Inventories, gene trees,
+# and reports for a release are written under results/releases/<release>/.
+# Per-accession work (GenBank records, sharkmer runs, genome marker extraction)
+# is stored once by accession and reused by every release. scripts/run_release.sh
+# sets release to today's date; pass it explicitly to rebuild a past release.
+release: null
+
+# Clade to inventory. The taxid is checked against the name at query time,
+# so a wrong taxid fails instead of silently inventorying another organism.
+taxon:
+  name: Siphonophorae
+  taxid: 42759
+
+# --- NCBI nucleotide (GenBank) records ---------------------------------------
+ncbi:
+  # Records longer than this are pieces of genome assemblies (chromosomes,
+  # scaffolds) and are handled through the genome route instead.
+  max_record_length: 100000
+  # Record types (see scripts/inventory_ncbi_nucleotide.py) that are downloaded
+  # and searched for marker genes.
+  process_record_types: [gene_record, mitochondrial_genome]
+  # Entrez batch size for esummary/efetch.
+  batch_size: 200
+
+# --- SRA / ENA read runs -------------------------------------------------------
+sra:
+  # Runs are analysed with sharkmer only when both platform and strategy match.
+  platforms: [ILLUMINA, BGISEQ, DNBSEQ]
+  library_strategies: [WGS, RNA-Seq, WGA, Hi-C, OTHER]
+  # Number of reads (individual reads, not pairs) streamed from ENA per run.
+  max_reads: 2000000
+  # Optional cap on the number of runs, for pilot releases. null = all runs.
+  max_runs: null
+
+sharkmer:
+  # sharkmer has no siphonophore-only panel; hydrozoa (v1.0.9 in sharkmer 3.2.1)
+  # covers siphonophores and targets 16S, CO1, 18S and 28S.
+  panel: hydrozoa
+  threads: 4
+  # Products flagged with assembly warnings by sharkmer are excluded from trees
+  # unless this is true. They are always kept in the per-run outputs.
+  include_uncertain_products: false
+  # Panel gene name -> gene_id in config/gene_vocabulary.tsv
+  gene_map:
+    16S: 16S
+    CO1: CO1
+    18S: 18S
+    28S: 28S
+
+# --- Genome assemblies -----------------------------------------------------------
+genomes:
+  # Keep GenBank (GCA) assemblies; RefSeq (GCF) copies duplicate them.
+  accession_prefix: GCA
+  # Maximum number of marker copies extracted per gene per assembly, best
+  # scoring first. Several are kept because the top-scoring copy can be
+  # contaminant rDNA (e.g. another hydrozoan) rather than the siphonophore's.
+  max_copies_per_gene: 3
+  # Per-gene exceptions. Mitochondrial markers keep only the best copy:
+  # lower-ranked CO1/16S hits in nuclear assemblies were nuclear copies or
+  # spurious fragments with very long branches that produced false flags.
+  max_copies_by_gene:
+    16S: 1
+    CO1: 1
+  # Optional list restricting genomes, for pilot releases. null = all.
+  include: null
+
+# --- Marker identification by sequence similarity -------------------------------
+markers:
+  # Public records whose annotated features supply reference sequences for
+  # gene identification, in addition to the sharkmer panel's reference regions.
+  # Chosen to span the main siphonophore clades (Cystonectae, Physonectae,
+  # Calycophorae) for mitochondrial genes and nuclear rRNA.
+  reference_records:
+    - NC_080951.1   # Gymnopraia lapislazula mitochondrion (Calycophorae)
+    - PZ224405.1    # Physalia megalista mitochondrion (Cystonectae)
+    - KT809335.1    # Rhizophysa eysenhardtii mitochondrion (Cystonectae)
+    - OQ957212.1    # Forskalia sp. mitochondrion (Physonectae)
+    - KX421854.1    # Sphaeronectes haddocki 18S
+    - KX421851.1    # Desmophyes haematogaster 18S
+    - EU272566.1    # Halistemma rubrum 28S
+    - EU272594.1    # Sulculeolaria quadrivalvis 28S
+    - EU272546.1    # Apolemia sp. 28S
+  blast_task: dc-megablast
+  evalue: 1.0e-10
+  min_hsp_length: 50
+  # HSPs of the same gene on the same strand are chained into one region when
+  # separated by at most this many bases on the target.
+  max_chain_gap: 300
+  # A region is rejected when more than this fraction of it overlaps a
+  # higher-scoring region assigned to another gene.
+  max_gene_overlap: 0.5
+
+# --- Gene trees ---------------------------------------------------------------------
+trees:
+  genes: [18S, 28S, 16S, CO1]
+  # Sequences shorter than min_length are left out of trees (reported in
+  # tip_metadata.tsv). The low values admit short barcodes, e.g. 18S V4/V9
+  # amplicons and CO1 mini-barcodes.
+  min_length:
+    18S: 100
+    28S: 100
+    16S: 100
+    CO1: 100
+  # Sequences at least this long form the alignment backbone; shorter ones are
+  # added to it as fragments (mafft --addfragments --keeplength).
+  backbone_min_length:
+    18S: 1500
+    28S: 1500
+    16S: 450
+    CO1: 550
+  # Sequences with fewer non-gap sites after trimming are left out of the tree.
+  min_aligned_sites: 80
+  mafft_args: "--auto"
+  trimal_args: "-automated1"
+  iqtree_model: MFP
+  iqtree_bootstrap: 1000
+  seed: 1
+
+# --- Flagging suspect species identifications ----------------------------------
+suspect:
+  # Nearest neighbours (by patristic distance, excluding sequences from the
+  # same dataset) examined for each sequence.
+  k_neighbors: 5
+  # Ranks checked per gene, finest first. 18S and 28S evolve slowly in
+  # siphonophores and do not resolve genera, so they are checked at family
+  # level only; mitochondrial 16S and CO1 are checked at genus and family.
+  ranks:
+    18S: [family]
+    28S: [family]
+    16S: [genus, family]
+    CO1: [genus, family]
+  # A mismatch is flagged only if the nearest sequence of the same genus
+  # (family) is at least this many substitutions/site farther away than the
+  # nearest neighbour, i.e. the gene actually resolves the difference.
+  min_distance_gap:
+    18S: 0.01
+    28S: 0.01
+    16S: 0.02
+    CO1: 0.02

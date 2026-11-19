@@ -1,0 +1,18 @@
+# Submit each job to SLURM; snakemake itself runs as a light orchestrator.
+# CPUs per job come from each rule's threads (do not set cpus_per_task here).
+executor: slurm
+# YCRC allows 200 submissions per hour per user. Light rules are localrules
+# (workflow/Snakefile), and submissions are capped at 3 per minute (180/h).
+# Do not use slurm-array-jobs: with snakemake-executor-plugin-slurm 2.8.0 on
+# Misha every task of an array ran the array's first job (2026-11-18).
+max-jobs-per-timespan: 3/1m
+jobs: 100
+latency-wait: 120
+keep-going: true
+rerun-incomplete: true
+printshellcmds: true
+default-resources:
+  slurm_partition: day
+  slurm_account: dunn
+  runtime: 60
+  mem_mb: 4000

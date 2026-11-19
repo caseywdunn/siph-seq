@@ -1,0 +1,11 @@
+# Bounded pilot of the same workflow: a few SRA runs and the smallest genome.
+# Use with: --configfile config/config.yaml config/pilot.yaml
+sra:
+  platforms: [ILLUMINA, BGISEQ, DNBSEQ]
+  library_strategies: [WGS, RNA-Seq, WGA, Hi-C, OTHER]
+  max_reads: 2000000
+  max_runs: 3
+genomes:
+  accession_prefix: GCA
+  max_copies_per_gene: 3
+  include: [GCA_032273505.1]

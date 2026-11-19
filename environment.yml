@@ -1,0 +1,25 @@
+name: siph-seq
+channels:
+  - conda-forge
+  - bioconda
+dependencies:
+  - python=3.12
+  # workflow
+  - snakemake=9
+  - snakemake-executor-plugin-slurm
+  - graphviz
+  # data access and parsing
+  - biopython
+  - pandas
+  - pyyaml
+  - requests
+  - ncbi-datasets-cli
+  # sequence analysis
+  - sharkmer=3.2.1
+  - blast
+  - mafft
+  - trimal
+  - iqtree>=3
+  # development
+  - pytest
+  - ruff

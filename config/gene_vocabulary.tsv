@@ -1,0 +1,22 @@
+gene_id	description	compartment	so_id	so_label	hgnc_id	hgnc_symbol	label_pattern
+18S	nuclear small subunit ribosomal RNA	nuclear	SO:0002236	cytosolic_rRNA_18S_gene	HGNC:53531	RNA18SN5	\b18S\b|small[ -]subunit ribosomal RNA|\bSSU\b|\bSSU rRNA\b
+ITS1	internal transcribed spacer 1	nuclear	SO:0000639	internal_transcribed_spacer_region			internal transcribed spacer 1\b|\bITS-?1\b
+5.8S	5.8S ribosomal RNA	nuclear	SO:0002240	cytosolic_rRNA_5_8S_gene	HGNC:53533	RNA5-8SN5	\b5\.8S\b
+ITS2	internal transcribed spacer 2	nuclear	SO:0000639	internal_transcribed_spacer_region			internal transcribed spacer 2\b|\bITS-?2\b
+28S	nuclear large subunit ribosomal RNA	nuclear	SO:0002239	cytosolic_rRNA_28S_gene	HGNC:53532	RNA28SN5	\b28S\b|\b26S\b|large[ -]subunit ribosomal RNA|\bLSU\b
+16S	mitochondrial large subunit ribosomal RNA	mitochondrion	SO:0002364	mt_LSU_rRNA_gene	HGNC:7471	MT-RNR2	\b16S\b|\brnl\b|\brrnL\b|\brrl\b|\bl-rRNA\b|\blrRNA\b|large[ -]subunit ribosomal RNA
+12S	mitochondrial small subunit ribosomal RNA	mitochondrion	SO:0002365	mt_SSU_rRNA_gene	HGNC:7470	MT-RNR1	\b12S\b|\brns\b|\brrnS\b|\brrs\b|\bs-rRNA\b|\bsrRNA\b|small[ -]subunit ribosomal RNA
+CO1	cytochrome c oxidase subunit I	mitochondrion	SO:0001217	protein_coding_gene	HGNC:7419	MT-CO1	\bcox-?1\b|\bco-?1\b|\bcoi\b|\bcoxi\b|cytochrome (c )?oxidase subunit (1|I)\b
+CO2	cytochrome c oxidase subunit II	mitochondrion	SO:0001217	protein_coding_gene	HGNC:7421	MT-CO2	\bcox-?2\b|\bco-?2\b|\bcoii\b|\bcoxii\b|cytochrome (c )?oxidase subunit (2|II)\b
+CO3	cytochrome c oxidase subunit III	mitochondrion	SO:0001217	protein_coding_gene	HGNC:7422	MT-CO3	\bcox-?3\b|\bco-?3\b|\bcoiii\b|\bcoxiii\b|cytochrome (c )?oxidase subunit (3|III)\b
+ATP6	ATP synthase F0 subunit 6	mitochondrion	SO:0001217	protein_coding_gene	HGNC:7414	MT-ATP6	\batp-?6\b|ATP synthase (F0 )?subunit (6|a)\b|ATPase (subunit )?6\b
+ATP8	ATP synthase F0 subunit 8	mitochondrion	SO:0001217	protein_coding_gene	HGNC:7415	MT-ATP8	\batp-?8\b|ATP synthase (F0 )?subunit 8\b|ATPase (subunit )?8\b
+CYTB	cytochrome b	mitochondrion	SO:0001217	protein_coding_gene	HGNC:7427	MT-CYB	\bcytb\b|\bcob\b|\bcyt ?b\b|cytochrome b\b
+ND4L	NADH dehydrogenase subunit 4L	mitochondrion	SO:0001217	protein_coding_gene	HGNC:7460	MT-ND4L	\bnad4l\b|\bnd4l\b|NADH dehydrogenase subunit 4L\b
+ND1	NADH dehydrogenase subunit 1	mitochondrion	SO:0001217	protein_coding_gene	HGNC:7455	MT-ND1	\bnad1\b|\bnd1\b|NADH dehydrogenase subunit (1|I)\b
+ND2	NADH dehydrogenase subunit 2	mitochondrion	SO:0001217	protein_coding_gene	HGNC:7456	MT-ND2	\bnad2\b|\bnd2\b|NADH dehydrogenase subunit (2|II)\b
+ND3	NADH dehydrogenase subunit 3	mitochondrion	SO:0001217	protein_coding_gene	HGNC:7458	MT-ND3	\bnad3\b|\bnd3\b|NADH dehydrogenase subunit (3|III)\b
+ND4	NADH dehydrogenase subunit 4	mitochondrion	SO:0001217	protein_coding_gene	HGNC:7459	MT-ND4	\bnad4\b|\bnd4\b|NADH dehydrogenase subunit (4|IV)\b
+ND5	NADH dehydrogenase subunit 5	mitochondrion	SO:0001217	protein_coding_gene	HGNC:7461	MT-ND5	\bnad5\b|\bnd5\b|NADH dehydrogenase subunit (5|V)\b
+ND6	NADH dehydrogenase subunit 6	mitochondrion	SO:0001217	protein_coding_gene	HGNC:7462	MT-ND6	\bnad6\b|\bnd6\b|NADH dehydrogenase subunit (6|VI)\b
+EF1A	elongation factor 1 alpha	nuclear	SO:0001217	protein_coding_gene	HGNC:3189	EEF1A1	\bef-?1a\b|\bef-?1 ?alpha\b|elongation factor 1[ -]alpha\b|\beef1a\b

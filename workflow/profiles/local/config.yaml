@@ -1,0 +1,5 @@
+# Run jobs on the current machine (an interactive allocation, never a login node).
+cores: 4
+keep-going: true
+rerun-incomplete: true
+printshellcmds: true

@@ -1,0 +1,109 @@
+"""
+Inventory and analyse all public siphonophore sequence data.
+
+Each run builds one release (a dated snapshot of NCBI and ENA). Per-accession
+work is stored outside the release and reused, so rerunning with a new release
+only processes newly public data.
+
+Stages:
+1. inventory.smk: list all public GenBank records, SRA runs, and genome
+   assemblies; resolve taxonomy; build the manifest and reference markers.
+2. ncbi_records.smk: download GenBank records and identify their genes.
+3. sra_reads.smk: recover marker genes from reads with sharkmer.
+4. genomes.smk: download assemblies and extract marker genes.
+5. trees.smk: build one gene tree per marker across all sources.
+6. reports.smk: flag suspect species identifications and summarize the release.
+
+Final target: all.
+"""
+
+import json
+import re
+
+from snakemake.exceptions import WorkflowError
+
+
+configfile: "config/config.yaml"
+
+
+RELEASE = config.get("release")
+if not RELEASE:
+    raise WorkflowError(
+        "Set a release id, e.g. --config release=2026-11-18 (scripts/run_release.sh does this)."
+    )
+REL = f"results/releases/{RELEASE}"
+REFS = "results/references"
+PANEL = config["sharkmer"]["panel"]
+GENE_MAP = " ".join(f"{k}={v}" for k, v in config["sharkmer"]["gene_map"].items())
+TREE_GENES = config["trees"]["genes"]
+TAXON = config["taxon"]
+
+
+wildcard_constraints:
+    run=r"[SDE]RR\d+",
+    asm=r"GC[AF]_\d+\.\d+",
+    collection="ncbi|sra",
+    gene="|".join(re.escape(g) for g in TREE_GENES),
+
+
+include: "rules/inventory.smk"
+include: "rules/ncbi_records.smk"
+include: "rules/sra_reads.smk"
+include: "rules/genomes.smk"
+include: "rules/trees.smk"
+include: "rules/reports.smk"
+
+
+# Light steps (seconds to a few minutes, little memory) run in the Snakemake
+# process itself rather than as SLURM jobs. YCRC limits submissions to 200 jobs
+# per hour per user, so only heavy steps are submitted.
+localrules:
+    inventory_ncbi_nucleotide,
+    inventory_sra_runs,
+    inventory_genomes,
+    export_sharkmer_panel,
+    fetch_reference_records,
+    build_marker_references,
+    make_marker_db_blast,
+    resolve_taxonomy,
+    build_manifest,
+    fetch_ncbi_records,
+    parse_ncbi_records,
+    assign_marker_regions,
+    extract_marker_regions,
+    compare_gene_annotations,
+    summarize_sharkmer_run,
+    collect_sharkmer_products,
+    assign_genome_marker_regions,
+    extract_genome_marker_regions,
+    assemble_gene_sequences,
+    trim_alignment_trimal,
+    relabel_gene_tree,
+    flag_suspect_placements,
+    report_release,
+    record_release_provenance,
+    write_release_report,
+    inventory,
+    trees,
+    all,
+
+
+rule inventory:
+    input:
+        f"{REL}/manifest.tsv",
+
+
+rule trees:
+    input:
+        expand(f"{REL}/trees/{{gene}}/tree.nwk", gene=TREE_GENES),
+
+
+rule all:
+    default_target: True
+    input:
+        f"{REL}/manifest.tsv",
+        f"{REL}/reports/dataset_status.tsv",
+        f"{REL}/reports/dataset_flags.tsv",
+        f"{REL}/ncbi/gene_assignments.tsv",
+        f"{REL}/release_record.yaml",
+        f"reports/{RELEASE}/README.md",
